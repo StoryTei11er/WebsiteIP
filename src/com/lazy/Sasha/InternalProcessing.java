@@ -16,8 +16,8 @@ public class InternalProcessing {
         System.out.println("Идёт создание ссылок для запроса.");
         List<String> listOfUrl = new ArrayList<>();
 
-        for (String stringValue : listOfSite) {
-            listOfUrl.add(createURL(stringValue));
+        for (String domain : listOfSite) {
+            listOfUrl.add(createURL(domain));
         }
         return listOfUrl;
     }
@@ -86,13 +86,13 @@ public class InternalProcessing {
 
     public List<String> uniteList(List<String> listOfSite, List<String> listOfIP) {
         List<String> unitedList = new ArrayList<>();
-        StringBuilder stringBuilder;
+        StringBuilder neededSpace;
 
         int index = 0;
         for (String nameOfSite : listOfSite) {
             int sizeOfDomain = 15 - nameOfSite.length();
-                stringBuilder = spaceCounter(sizeOfDomain);
-                unitedList.add((nameOfSite + stringBuilder + " IP is: " + listOfIP.get(index)));
+                neededSpace = spaceCounter(sizeOfDomain);
+                unitedList.add((nameOfSite + neededSpace + " IP is: " + listOfIP.get(index)));
                 index++;
             }
         System.out.println("Требуемый документ сформирован и вскоре будет записан.");
@@ -101,12 +101,12 @@ public class InternalProcessing {
 
     private static StringBuilder spaceCounter(int size){
         String space = " ";
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder neededSpace = new StringBuilder();
 
         for (int i = 0; i <= size; i++) {
-            stringBuilder.append(space);
+            neededSpace.append(space);
         }
-        return stringBuilder;
+        return neededSpace;
     }
 
 }
