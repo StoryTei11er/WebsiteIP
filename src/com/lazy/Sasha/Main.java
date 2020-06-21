@@ -7,7 +7,9 @@ import java.util.List;
 
 public class Main {
 
-    static String websiteNameAndIP = "workData/websiteNameAndIP.txt";
+    static String websiteName = "workData/websiteName.txt";
+    static String websiteAndIP = "./workData/websiteAndIP.txt";
+
 
     public static void main(String[] args) {
 
@@ -18,15 +20,14 @@ public class Main {
         SimpleFileWriter simpleFileWriter = new SimpleFileWriter();
         InternalProcessing internalProcessing = new InternalProcessing();
 
-        List<String> listOfSite = simpleFileReader.readLines(websiteNameAndIP);
+        List<String> listOfSite = simpleFileReader.readLines(websiteName);
         List<String> listOfUrl =  internalProcessing.createUrlList(listOfSite);
         List<String> listOfIP =  internalProcessing.urlRequest(listOfUrl);
         List<String> unitedList =  internalProcessing.uniteList(listOfSite, listOfIP);
-        simpleFileWriter.writeLines(unitedList, websiteNameAndIP);
+        simpleFileWriter.writeLines(unitedList, websiteAndIP);
 
 
         System.out.println("Запись завершенна и файл готов к чтению.");
-
 
     }
 }
