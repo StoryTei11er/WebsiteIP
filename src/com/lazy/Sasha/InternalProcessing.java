@@ -41,7 +41,7 @@ public class InternalProcessing {
     }
 
 
-    public String takeIP(String url) {
+    private String takeIP(String url) {
         String response = makeRequest(url);
 
         StringBuilder stringBuilder = new StringBuilder(response);
@@ -92,7 +92,7 @@ public class InternalProcessing {
         for (String nameOfSite : listOfSite) {
             int sizeOfDomain = 15 - nameOfSite.length();
                 neededSpace = spaceCounter(sizeOfDomain);
-                unitedList.add((nameOfSite + neededSpace + " IP is: " + listOfIP.get(index)));
+            unitedList.add((nameOfSite + neededSpace + " IP is: " + listOfIP.get(index)));
                 index++;
             }
         System.out.println("Требуемый документ сформирован и вскоре будет записан.");
